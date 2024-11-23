@@ -82,7 +82,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -130,6 +130,45 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -509,7 +548,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      enemy_porcupine_0: 6743865668467184489
+      enemy_porcupine_1: 1470065178105101309
+      enemy_porcupine_10: 7836895531363549234
+      enemy_porcupine_11: -3765024375935501467
+      enemy_porcupine_12: -8791245472905636144
+      enemy_porcupine_13: -3419636450299971905
+      enemy_porcupine_14: -1037237094609205715
+      enemy_porcupine_15: -1671945100705702592
+      enemy_porcupine_2: 6295295414961972875
+      enemy_porcupine_3: 5305172457286840603
+      enemy_porcupine_4: -6664273051597897000
+      enemy_porcupine_5: -7128790123920744621
+      enemy_porcupine_6: 276490608335198939
+      enemy_porcupine_7: 8544727480184771818
+      enemy_porcupine_8: 5437812988781726253
+      enemy_porcupine_9: 5628769718492938252
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
