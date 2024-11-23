@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class HealthSystem : MonoBehaviour
+public class HealthSystem
 {
     public int maxHealth;
     public int currentHealth;
@@ -34,8 +34,6 @@ public class HealthSystem : MonoBehaviour
     {
         return (float)currentHealth / maxHealth;
     }
-
-
 
     public bool IsDead()
     {

@@ -1,106 +1,10 @@
 fileFormatVersion: 2
-guid: ede1cdc77a5740643a14318a03a363b6
+guid: 5115ff5a10d77da4b9acdf85c6f726c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2283664790185300531
-    second: main_caracter_0
-  - first:
-      213: -8203922714645682338
-    second: main_caracter_1
-  - first:
-      213: -3758506698484122968
-    second: main_caracter_2
-  - first:
-      213: -3714907617847382928
-    second: main_caracter_3
-  - first:
-      213: -5585190824693746922
-    second: main_caracter_4
-  - first:
-      213: 5728064534859631583
-    second: main_caracter_5
-  - first:
-      213: -2731064679543595964
-    second: main_caracter_6
-  - first:
-      213: -9042109059883107667
-    second: main_caracter_7
-  - first:
-      213: -2433527764994792079
-    second: main_caracter_8
-  - first:
-      213: 3920888848175158410
-    second: main_caracter_9
-  - first:
-      213: -4411194095673899945
-    second: main_caracter_10
-  - first:
-      213: 6304462051734270710
-    second: main_caracter_11
-  - first:
-      213: -5484416682997596000
-    second: main_caracter_12
-  - first:
-      213: 5331038775192750558
-    second: main_caracter_13
-  - first:
-      213: 5727989320694753341
-    second: main_caracter_14
-  - first:
-      213: -8430637678782446800
-    second: main_caracter_15
-  - first:
-      213: -1232491744077402380
-    second: main_caracter_16
-  - first:
-      213: 1775260810796200910
-    second: main_caracter_17
-  - first:
-      213: -3221409907750746202
-    second: main_caracter_18
-  - first:
-      213: -3216025471602486855
-    second: main_caracter_19
-  - first:
-      213: -2466826884458786597
-    second: main_caracter_20
-  - first:
-      213: 6621246089644135338
-    second: main_caracter_21
-  - first:
-      213: 1143951604562883297
-    second: main_caracter_22
-  - first:
-      213: -4278992854146539989
-    second: main_caracter_23
-  - first:
-      213: 3035222852400621154
-    second: main_caracter_24
-  - first:
-      213: 24565747421865064
-    second: main_caracter_25
-  - first:
-      213: 2269576041580769334
-    second: main_caracter_26
-  - first:
-      213: -2814562048452450768
-    second: main_caracter_27
-  - first:
-      213: 554139669120565968
-    second: main_caracter_28
-  - first:
-      213: 5454390706798268095
-    second: main_caracter_29
-  - first:
-      213: 5668332987094611363
-    second: main_caracter_30
-  - first:
-      213: 8795329650621853652
-    second: main_caracter_31
-  - first:
-      213: -6714778849131584638
-    second: main_caracter_32
+      213: -8880092494206729619
+    second: hpBar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -133,16 +37,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
-  nPOTScale: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -151,9 +55,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -207,7 +111,29 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: hpBar_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 254
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d62023edce293c480800000000000000
+      internalID: -8880092494206729619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
