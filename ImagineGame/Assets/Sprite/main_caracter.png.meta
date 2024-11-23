@@ -133,7 +133,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
+    filterMode: 0
+=======
     filterMode: 1
+>>>>>>> 850086177426598bbd903cff14977319ed298d19
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -192,6 +196,22 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+=======
+>>>>>>> 850086177426598bbd903cff14977319ed298d19
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -934,7 +954,44 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
+<<<<<<< HEAD
+    nameFileIdTable:
+      main_caracter_0: 2283664790185300531
+      main_caracter_1: -8203922714645682338
+      main_caracter_10: -4411194095673899945
+      main_caracter_11: 6304462051734270710
+      main_caracter_12: -5484416682997596000
+      main_caracter_13: 5331038775192750558
+      main_caracter_14: 5727989320694753341
+      main_caracter_15: -8430637678782446800
+      main_caracter_16: -1232491744077402380
+      main_caracter_17: 1775260810796200910
+      main_caracter_18: -3221409907750746202
+      main_caracter_19: -3216025471602486855
+      main_caracter_2: -3758506698484122968
+      main_caracter_20: -2466826884458786597
+      main_caracter_21: 6621246089644135338
+      main_caracter_22: 1143951604562883297
+      main_caracter_23: -4278992854146539989
+      main_caracter_24: 3035222852400621154
+      main_caracter_25: 24565747421865064
+      main_caracter_26: 2269576041580769334
+      main_caracter_27: -2814562048452450768
+      main_caracter_28: 554139669120565968
+      main_caracter_29: 5454390706798268095
+      main_caracter_3: -3714907617847382928
+      main_caracter_30: 5668332987094611363
+      main_caracter_31: 8795329650621853652
+      main_caracter_32: -6714778849131584638
+      main_caracter_4: -5585190824693746922
+      main_caracter_5: 5728064534859631583
+      main_caracter_6: -2731064679543595964
+      main_caracter_7: -9042109059883107667
+      main_caracter_8: -2433527764994792079
+      main_caracter_9: 3920888848175158410
+=======
     nameFileIdTable: {}
+>>>>>>> 850086177426598bbd903cff14977319ed298d19
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
