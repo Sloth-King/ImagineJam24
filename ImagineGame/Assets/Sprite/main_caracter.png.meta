@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5eb7b9d8b73808e478d21848d2ef547c
+guid: ede1cdc77a5740643a14318a03a363b6
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -133,7 +133,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 0
+=======
+    filterMode: 1
+>>>>>>> 850086177426598bbd903cff14977319ed298d19
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -192,6 +196,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
   - serializedVersion: 4
     buildTarget: WindowsStoreApps
     maxTextureSize: 2048
@@ -205,6 +210,8 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+=======
+>>>>>>> 850086177426598bbd903cff14977319ed298d19
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -947,6 +954,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
+<<<<<<< HEAD
     nameFileIdTable:
       main_caracter_0: 2283664790185300531
       main_caracter_1: -8203922714645682338
@@ -981,6 +989,9 @@ TextureImporter:
       main_caracter_7: -9042109059883107667
       main_caracter_8: -2433527764994792079
       main_caracter_9: 3920888848175158410
+=======
+    nameFileIdTable: {}
+>>>>>>> 850086177426598bbd903cff14977319ed298d19
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
