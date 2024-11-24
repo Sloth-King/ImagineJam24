@@ -10,6 +10,7 @@ public class StartCombat : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            this.gameObject.SetActive(false);
             SceneManager.LoadScene(sceneName);
         }
     }
