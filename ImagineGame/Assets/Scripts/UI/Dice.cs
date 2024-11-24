@@ -64,7 +64,7 @@ public class Dice : MonoBehaviour { // https://www.youtube.com/watch?v=JgbJZdXDN
             rend.sprite = diceSides[randomDiceSide];
 
             // Pause before next itteration
-            yield return new WaitForSeconds(0.10f);
+            yield return new WaitForSeconds(0.07f);
         }
 
         // Assigning final side so you can use this value later in your game

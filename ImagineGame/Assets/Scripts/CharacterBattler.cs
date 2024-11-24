@@ -8,7 +8,7 @@ public class CharacterBattler : MonoBehaviour
 
     [SerializeField] private Vector3 targetPosition;
     [SerializeField] private int attackDamage = 10;
-    [SerializeField] private int health = 100;
+    [SerializeField] private int health = 15;
 
     public HealthBarUI healthBarUI;
     public GameObject dicePrefab;
@@ -32,7 +32,12 @@ public class CharacterBattler : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         selectionCircleObject = transform.Find("shadow").gameObject;
-
+        if(isPlayerTeam) {
+            health = 10;
+        }
+        if(!isPlayerTeam){
+            health = 100;
+        }
         healthSystem = new HealthSystem(health);
         healthBarUI = GetComponentInChildren<HealthBarUI>();
         healthBarUI.SetMaxHealth(health);
@@ -130,11 +135,7 @@ private IEnumerator AttackCoroutine(CharacterBattler target, Action onAttackComp
         if(healthBarUI != null){
             healthBarUI.UpdateHealthBar(healthSystem.currentHealth);
         }
-        if(healthSystem.IsDead()){
-            //Die();
-        }
     }
-
     public void Heal(int healAmount){
         healthSystem.Heal(healAmount);
         if(healthBarUI != null){
@@ -165,7 +166,7 @@ private IEnumerator AttackCoroutine(CharacterBattler target, Action onAttackComp
         Dice dice = diceInstance.GetComponent<Dice>();
         yield return dice.RollTheDice();
         diceResult = dice.GetFinalSide();
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.7f);
         Destroy(diceInstance);
     }
 
