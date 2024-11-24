@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class BattleHandler : MonoBehaviour
 {
+    [SerializeField] private BattleEndUI battleEndUI;
     [SerializeField] private GameObject _player;
+    private GameObject battleElements;
 
     public Sprite playerSprite;
     public Sprite enemySprite;
@@ -27,6 +29,7 @@ public class BattleHandler : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        battleEndUI.Hide();
     }
     private void Start()
     {
@@ -49,14 +52,26 @@ public class BattleHandler : MonoBehaviour
         }
     }
 
-    private CharacterBattler SpawnCharacter(bool isPlayerTeam){
+    private CharacterBattler SpawnCharacter(bool isPlayerTeam)
+    {
         Vector3 spawnPosition = new Vector3(0, 0, 0);
-        if(isPlayerTeam){
+        if (isPlayerTeam)
+        {
             spawnPosition = new Vector3(-4.2f, 0, 0);
-        }else{
+        }
+        else
+        {
             spawnPosition = new Vector3(4.2f, 0, 0);
         }
-        GameObject character = Instantiate(_player, spawnPosition, Quaternion.identity);
+
+        battleElements = GameObject.Find("BattleElements");
+        if (battleElements == null)
+        {
+            Debug.LogError("BattleElements GameObject not found in the scene.");
+            return null;
+        }
+
+        GameObject character = Instantiate(_player, spawnPosition, Quaternion.identity, battleElements.transform);
         CharacterBattler characterBattler = character.GetComponent<CharacterBattler>();
         characterBattler.Setup(isPlayerTeam);
 
@@ -88,7 +103,17 @@ public class BattleHandler : MonoBehaviour
     }
 
     private bool IsBattleOver(){
-        if(playerCharacter.IsDead() || enemyCharacter.IsDead()){
+        if(playerCharacter.IsDead()){
+            Debug.Log("Lost Battle");
+            battleEndUI.ShowDefeatScreen();
+            battleElements.SetActive(false);
+            return true;
+        }
+        if(enemyCharacter.IsDead()){
+            battleEndUI.ShowVictoryScreen();
+            battleElements.SetActive(false);
+            
+            Debug.Log("Won Battle");
             return true;
         }
         return false;

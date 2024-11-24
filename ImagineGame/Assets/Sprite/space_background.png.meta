@@ -1,43 +1,10 @@
 fileFormatVersion: 2
-guid: f32e1f97fedcf1148979f2c223828424
+guid: 31af1d71014084a4bbbbd77833695a9a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8914541830777553014
-    second: pet_0
-  - first:
-      213: -8841671748756250112
-    second: pet_1
-  - first:
-      213: -8339132566541016390
-    second: pet_2
-  - first:
-      213: 9153092930146038772
-    second: pet_3
-  - first:
-      213: -7619133365359829448
-    second: pet_4
-  - first:
-      213: 8498848212279441118
-    second: pet_5
-  - first:
-      213: -5497601799357074319
-    second: pet_6
-  - first:
-      213: -5252952256920124436
-    second: pet_7
-  - first:
-      213: -9167619553702789312
-    second: pet_8
-  - first:
-      213: -5025023198049529877
-    second: pet_9
-  - first:
-      213: 5494002893732638459
-    second: pet_10
-  - first:
-      213: -51928383198058789
-    second: pet_11
+      213: -5206492203630301992
+    second: Green_Nebula_07-1024x1024_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,16 +42,16 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,8 +60,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 3
-  flipbookColumns: 4
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -170,7 +137,29 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Green_Nebula_07-1024x1024_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dc66cc0de2deb7b0800000000000000
+      internalID: -5206492203630301992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -184,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Green_Nebula_07-1024x1024_0: -5206492203630301992
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

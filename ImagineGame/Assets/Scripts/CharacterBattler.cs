@@ -8,14 +8,18 @@ public class CharacterBattler : MonoBehaviour
 
     [SerializeField] private Vector3 targetPosition;
     [SerializeField] private int attackDamage = 10;
-    [SerializeField] private int health = 100;
+    [SerializeField] private int health = 15;
 
     public HealthBarUI healthBarUI;
+    public GameObject dicePrefab;
 
     public bool isPlayerTeam;
     private Action onSlideComplete;
     private GameObject selectionCircleObject;
     private HealthSystem healthSystem;
+
+    private int diceResult;
+
 
     private State state = State.Idle;
 
@@ -28,7 +32,12 @@ public class CharacterBattler : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         selectionCircleObject = transform.Find("shadow").gameObject;
-
+        if(isPlayerTeam) {
+            health = 100;
+        }
+        if(!isPlayerTeam){
+            health = 100;
+        }
         healthSystem = new HealthSystem(health);
         healthBarUI = GetComponentInChildren<HealthBarUI>();
         healthBarUI.SetMaxHealth(health);
@@ -65,36 +74,95 @@ public class CharacterBattler : MonoBehaviour
         PlayIdleAnimation();
     }
 
-    public void Attack(CharacterBattler target , Action onAttackComplete = null){
-        Vector3 targetPosition = target.transform.position + this.transform.position.normalized; 
-        Vector3 startPosition = this.transform.position;
+    public void Attack(CharacterBattler target, Action onAttackComplete = null)
+{
+    StartCoroutine(AttackCoroutine(target, onAttackComplete));
+}
 
-        //Slide to target position
-        SlideToPosition(targetPosition, () => {
-            //Attack target            
-            state = State.Attacking;
-            //TODO : When we have animations : Play attack animation
-            PlayAttackAnimation();
-            target.Damage(attackDamage);
-            //When done with attack, go back to start position
-            SlideToPosition(startPosition, () => {
-                state = State.Idle;
-                onAttackComplete();
-            });
+private IEnumerator AttackCoroutine(CharacterBattler target, Action onAttackComplete)
+{
+    // Roll the dice
+    yield return StartCoroutine(RollDiceCoroutine());
+
+    // After the dice roll, proceed with the attack
+    Vector3 targetPosition = target.transform.position + this.transform.position.normalized; 
+    Vector3 startPosition = this.transform.position;
+
+    // Slide to target position
+    SlideToPosition(targetPosition, () => {
+        // Attack target            
+        state = State.Attacking;
+        // TODO: When we have animations, play attack animation
+        PlayAttackAnimation();
+        target.Damage(attackDamage, diceResult);
+        Heal(diceResult);
+
+        // When done with the attack, go back to the start position
+        SlideToPosition(startPosition, () => {
+            state = State.Idle;
+            onAttackComplete?.Invoke();
         });
-    }
+    });
+}
 
-    public void Damage(int damageAmount){
-        healthSystem.Damage(damageAmount);
+
+    public void Damage(int damageAmount, int diceResult){
+        int realDamageAmount;
+        switch(diceResult){
+            case 1:
+                realDamageAmount = damageAmount - 10;
+                break;
+            case 2:
+                realDamageAmount = damageAmount - 5;
+                break;
+            case 3:
+                realDamageAmount = damageAmount - 2;
+                break;
+            case 4:
+                realDamageAmount = damageAmount;
+                break;
+            case 5:
+                realDamageAmount = damageAmount + 10;
+                break;
+            case 6:
+                realDamageAmount = damageAmount + 20;
+                break;
+            default:
+                Debug.Log("Broke i guess idk");
+                realDamageAmount = damageAmount;
+                break;
+        }
+        healthSystem.Damage(realDamageAmount);
         if(healthBarUI != null){
             healthBarUI.UpdateHealthBar(healthSystem.currentHealth);
         }
-        if(healthSystem.IsDead()){
-            //Die();
-        }
     }
-
-    public void Heal(int healAmount){
+    public void Heal(int diceResult){
+        int healAmount;
+        switch(diceResult){
+            case 1:
+                healAmount = 0;
+                break;
+            case 2:
+                healAmount = 0;
+                break;
+            case 3:
+                healAmount = 5;
+                break;
+            case 4:
+                healAmount = 10;
+                break;
+            case 5:
+                healAmount = 10;
+                break;
+            case 6:
+                healAmount = 30;
+                break;
+            default:
+                Debug.Log("Broke i guess idk");
+                healAmount = 0;
+                break;
+        }
         healthSystem.Heal(healAmount);
         if(healthBarUI != null){
             healthBarUI.UpdateHealthBar(healthSystem.currentHealth);
@@ -117,6 +185,15 @@ public class CharacterBattler : MonoBehaviour
 
     public void ShowSelectionCircle(){
         selectionCircleObject.SetActive(true);
+    }
+
+    private IEnumerator RollDiceCoroutine()    {
+        GameObject diceInstance = Instantiate(dicePrefab, transform.position, Quaternion.identity);
+        Dice dice = diceInstance.GetComponent<Dice>();
+        yield return dice.RollTheDice();
+        diceResult = dice.GetFinalSide();
+        yield return new WaitForSeconds(0.7f);
+        Destroy(diceInstance);
     }
 
     //TODO : Implement this method 

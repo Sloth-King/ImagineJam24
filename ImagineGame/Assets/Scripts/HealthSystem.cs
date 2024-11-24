@@ -15,7 +15,7 @@ public class HealthSystem
 
     public void Damage(int damageAmount)
     {
-        Debug.Log("Damage: " + damageAmount);
+        //Debug.Log("Dealt Damage: " + damageAmount);
         currentHealth -= damageAmount;
         if(currentHealth < 0){
             currentHealth = 0;
@@ -24,6 +24,7 @@ public class HealthSystem
 
     public void Heal(int healAmount)
     {
+        Debug.Log("Healed: " + healAmount);
         currentHealth += healAmount;
         if(currentHealth > maxHealth){
             currentHealth = maxHealth;
