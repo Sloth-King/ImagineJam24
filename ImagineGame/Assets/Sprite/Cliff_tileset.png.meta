@@ -123,6 +123,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -359,7 +372,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cliff_tileset_0: 6142827362054711102
+      Cliff_tileset_1: 5801171633992911622
+      Cliff_tileset_2: -5783644111361203840
+      Cliff_tileset_3: 5182566662443011658
+      Cliff_tileset_4: -2693545416057745895
+      Cliff_tileset_5: -7931731197518542784
+      Cliff_tileset_6: 6559148127271512250
+      Cliff_tileset_7: 2871480312957783705
+      Cliff_tileset_8: -378617780388246246
+      Cliff_tileset_9: 8530955637066470592
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

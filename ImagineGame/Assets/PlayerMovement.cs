@@ -21,11 +21,14 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        if (movement.sqrMagnitude > 1)
+        {
+            movement.Normalize();
+        }
+
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-        
-
     }
 
     private void FixedUpdate()
@@ -38,12 +41,10 @@ public class PlayerMovement : MonoBehaviour
 
         //w.firePoint.position = rb.position;
         //Flip();
-
     }
 
     private void Flip()
     {
-
         m_facingRight = !m_facingRight;
 
         Vector3 scale = transform.localScale;
@@ -52,5 +53,4 @@ public class PlayerMovement : MonoBehaviour
 
         //transform.Rotate(0f, 180f, 0f);
     }
-
 }
