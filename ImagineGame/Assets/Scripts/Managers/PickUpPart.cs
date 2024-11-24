@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PickUpPart : MonoBehaviour
 {   
@@ -9,16 +10,16 @@ public class PickUpPart : MonoBehaviour
         {
             char lastChar = this.gameObject.name[this.gameObject.name.Length - 1];
             int number = (int)char.GetNumericValue(lastChar);
+            StaticIntArray.numberOfPartsCollected += 1;
 
             GameManager.instance.currentPart = number;
 
-            // Debug.Log("pickup object number "+ number);
-            // Debug.Log("Avant :"+ StaticIntArray.partsCollected[number]);
-            // // tableau de int [number] == 1
-            // StaticIntArray.partsCollected[number] = 1;
-            // Debug.Log("pickup object number "+ number + " collected");
-            // Debug.Log("Avant :" + StaticIntArray.partsCollected[number]);
-            Debug.Log("this.gameObject.transform.parent.gameObject : " + this.gameObject.transform.parent.gameObject.name);
+            if (StaticIntArray.numberOfPartsCollected == 5)
+            {
+                SceneManager.LoadScene("EndingCutscene");
+                Debug.Log("All parts collected, start ending game");
+            }
+
             this.gameObject.transform.parent.gameObject.SetActive(false);
         }
     }
