@@ -15,6 +15,15 @@ public class PlayerMovement : MonoBehaviour
     private bool m_facingRight = true;
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        if(GameManager.instance != null)
+        {
+            transform.position = GameManager.instance.playerPosition;
+        }
+    }
+
     void Update()
     {
         //Input

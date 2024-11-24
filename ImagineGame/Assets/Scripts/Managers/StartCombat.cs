@@ -11,6 +11,7 @@ public class StartCombat : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             this.gameObject.SetActive(false);
+            GameManager.instance.playerPosition = other.transform.position;
             SceneManager.LoadScene(sceneName);
         }
     }

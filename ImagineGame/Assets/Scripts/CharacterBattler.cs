@@ -7,8 +7,8 @@ public class CharacterBattler : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     [SerializeField] private Vector3 targetPosition;
-    [SerializeField] private int attackDamage = 10;
-    [SerializeField] private int health = 15;
+    [SerializeField] private int attackDamage;
+    [SerializeField] private int health;
 
     public HealthBarUI healthBarUI;
     public GameObject dicePrefab;
@@ -32,15 +32,6 @@ public class CharacterBattler : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         selectionCircleObject = transform.Find("shadow").gameObject;
-        if(isPlayerTeam) {
-            health = 100;
-        }
-        if(!isPlayerTeam){
-            health = 100;
-        }
-        healthSystem = new HealthSystem(health);
-        healthBarUI = GetComponentInChildren<HealthBarUI>();
-        healthBarUI.SetMaxHealth(health);
 
         HideSelectionCircle();
     }
@@ -65,11 +56,45 @@ public class CharacterBattler : MonoBehaviour
     public void Setup(bool isPlayerTeam){
         this.isPlayerTeam = isPlayerTeam;
         if(isPlayerTeam){
+            health = 100;
+            attackDamage = 15;
             spriteRenderer.sprite = BattleHandler.GetInstance().playerSprite;
         }else{
+            switch(GameManager.instance.currentPart){
+                case 0:
+                    health = 50;
+                    attackDamage = 5;
+                    spriteRenderer.sprite = BattleHandler.GetInstance().enemySprite;
+                    break;
+                case 1:
+                    health = 60;
+                    attackDamage = 10;
+                    spriteRenderer.sprite = BattleHandler.GetInstance().enemySprite;
+                    break;
+                case 2:
+                    health = 70;
+                    attackDamage = 15;
+                    spriteRenderer.sprite = BattleHandler.GetInstance().enemySprite;
+                    break;
+                case 3:
+                    health = 80;
+                    attackDamage = 20;
+                    spriteRenderer.sprite = BattleHandler.GetInstance().enemySprite;
+                    break;
+                case 4:
+                    health = 90;
+                    attackDamage = 25;
+                    spriteRenderer.sprite = BattleHandler.GetInstance().enemySprite;
+                    break;
+                default:
+                    spriteRenderer.sprite = BattleHandler.GetInstance().enemySprite;
+                    break;
+            }
             spriteRenderer.sprite = BattleHandler.GetInstance().enemySprite;
         }
         healthSystem = new HealthSystem(health);
+        healthBarUI = GetComponentInChildren<HealthBarUI>();
+        healthBarUI.SetMaxHealth(health);
 
         PlayIdleAnimation();
     }
@@ -109,24 +134,23 @@ private IEnumerator AttackCoroutine(CharacterBattler target, Action onAttackComp
     public void Damage(int damageAmount, int diceResult){
         int realDamageAmount;
         switch(diceResult){
-            case 1:
-                realDamageAmount = damageAmount - 10;
-                break;
-            case 2:
-                realDamageAmount = damageAmount - 5;
-                break;
-            case 3:
-                realDamageAmount = damageAmount - 2;
-                break;
-            case 4:
-                realDamageAmount = damageAmount;
-                break;
-            case 5:
-                realDamageAmount = damageAmount + 10;
-                break;
-            case 6:
-                realDamageAmount = damageAmount + 20;
-                break;
+        case 1:
+            realDamageAmount = damageAmount - (int)(attackDamage * 0.5f);
+            break;
+        case 2:
+            realDamageAmount = damageAmount - (int)(attackDamage * 0.25f);
+            break;
+        case 3:
+            realDamageAmount = damageAmount - (int)(attackDamage * 0.1f);
+        case 4:
+            realDamageAmount = damageAmount;
+            break;
+        case 5:
+            realDamageAmount = damageAmount + (int)(attackDamage * 0.25f);
+            break;
+        case 6:
+            realDamageAmount = damageAmount + (int)(attackDamage * 0.5f);
+            break;
             default:
                 Debug.Log("Broke i guess idk");
                 realDamageAmount = damageAmount;
@@ -141,22 +165,18 @@ private IEnumerator AttackCoroutine(CharacterBattler target, Action onAttackComp
         int healAmount;
         switch(diceResult){
             case 1:
-                healAmount = 0;
-                break;
             case 2:
-                healAmount = 0;
-                break;
             case 3:
-                healAmount = 5;
+                healAmount = 0;
                 break;
             case 4:
-                healAmount = 10;
+                healAmount = (int)(healthSystem.maxHealth * 0.05f); //Heal 5% of max health
                 break;
             case 5:
-                healAmount = 10;
+                healAmount = (int)(healthSystem.maxHealth * 0.07f); //Heal 7% of max health
                 break;
             case 6:
-                healAmount = 30;
+                healAmount = (int)(healthSystem.maxHealth * 0.10f); //Heal 10% of max health
                 break;
             default:
                 Debug.Log("Broke i guess idk");

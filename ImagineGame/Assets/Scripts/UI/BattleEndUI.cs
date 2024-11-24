@@ -11,7 +11,6 @@ public class BattleEndUI : MonoBehaviour
     public void ShowDefeatScreen(){
         defeatScreen.SetActive(true);
     }
-
     public void HideVictoryScreen(){
         victoryScreen.SetActive(false);
     }

@@ -112,6 +112,9 @@ public class BattleHandler : MonoBehaviour
         if(enemyCharacter.IsDead()){
             battleEndUI.ShowVictoryScreen();
             battleElements.SetActive(false);
+
+            int currentPart = GameManager.instance.currentPart;
+            GameManager.instance.partsCollected[currentPart] = 1;
             
             Debug.Log("Won Battle");
             return true;
