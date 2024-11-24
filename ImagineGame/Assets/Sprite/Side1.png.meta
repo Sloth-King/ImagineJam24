@@ -1,43 +1,10 @@
 fileFormatVersion: 2
-guid: f32e1f97fedcf1148979f2c223828424
+guid: 147e4b1c9420d524d8f19adf0637ee34
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8914541830777553014
-    second: pet_0
-  - first:
-      213: -8841671748756250112
-    second: pet_1
-  - first:
-      213: -8339132566541016390
-    second: pet_2
-  - first:
-      213: 9153092930146038772
-    second: pet_3
-  - first:
-      213: -7619133365359829448
-    second: pet_4
-  - first:
-      213: 8498848212279441118
-    second: pet_5
-  - first:
-      213: -5497601799357074319
-    second: pet_6
-  - first:
-      213: -5252952256920124436
-    second: pet_7
-  - first:
-      213: -9167619553702789312
-    second: pet_8
-  - first:
-      213: -5025023198049529877
-    second: pet_9
-  - first:
-      213: 5494002893732638459
-    second: pet_10
-  - first:
-      213: -51928383198058789
-    second: pet_11
+      213: -1962201580291615686
+    second: Side1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -70,21 +37,21 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,8 +60,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 3
-  flipbookColumns: 4
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -170,7 +137,29 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Side1_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 8
+        width: 329
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3412051f0cd4c4e0800000000000000
+      internalID: -1962201580291615686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
