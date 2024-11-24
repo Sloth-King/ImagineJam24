@@ -142,7 +142,7 @@ private IEnumerator AttackCoroutine(CharacterBattler target, Action onAttackComp
             break;
         case 3:
             realDamageAmount = damageAmount - (int)(attackDamage * 0.1f);
-            break
+            break;
         case 4:
             realDamageAmount = damageAmount;
             break;
