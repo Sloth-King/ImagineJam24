@@ -15,7 +15,7 @@ public class HealthSystem
 
     public void Damage(int damageAmount)
     {
-        Debug.Log("Damage: " + damageAmount);
+        Debug.Log("Dealt Damage: " + damageAmount);
         currentHealth -= damageAmount;
         if(currentHealth < 0){
             currentHealth = 0;

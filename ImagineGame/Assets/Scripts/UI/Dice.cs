@@ -15,20 +15,16 @@ public class Dice : MonoBehaviour { // https://www.youtube.com/watch?v=JgbJZdXDN
         return finalSide;
     }
 
-	// Use this for initialization
 	private void Awake () {
 
-        // Assign Renderer component
         rend = GetComponent<SpriteRenderer>();
         if(rend == null)
         {
             Debug.LogError("Sprite Renderer component not found attached to the dice.");
         }
 
-        // Load dice sides sprites to array from DiceSides subfolder of Resources folder
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
 
-            Debug.Log($"diceSides length: {diceSides.Length}");
         if (diceSides.Length == 0)
         {
             Debug.LogError("diceSides array is empty! Assign the sprites in the Inspector.");
@@ -39,10 +35,6 @@ public class Dice : MonoBehaviour { // https://www.youtube.com/watch?v=JgbJZdXDN
     // If you left click over the dice then RollTheDice coroutine is started
     private void OnMouseDown()
     {
-        StartCoroutine("RollTheDice");
-    }
-
-    public void Roll(){
         StartCoroutine("RollTheDice");
     }
 
@@ -80,6 +72,6 @@ public class Dice : MonoBehaviour { // https://www.youtube.com/watch?v=JgbJZdXDN
         finalSide = randomDiceSide + 1;
 
         // Show final dice value in Console
-        Debug.Log(finalSide);
+        //Debug.Log(finalSide);
     }
 }
