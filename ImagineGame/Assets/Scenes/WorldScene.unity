@@ -959,7 +959,7 @@ GameObject:
   - component: {fileID: 1031567874}
   - component: {fileID: 1031567875}
   m_Layer: 0
-  m_Name: suzanne_part_4
+  m_Name: suzanne_part_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36715,7 +36715,7 @@ GameObject:
   - component: {fileID: 1430261359}
   - component: {fileID: 1430261360}
   m_Layer: 0
-  m_Name: suzanne_part_2
+  m_Name: suzanne_part_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36933,7 +36933,7 @@ GameObject:
   - component: {fileID: 1706690555}
   - component: {fileID: 1706690556}
   m_Layer: 0
-  m_Name: suzanne_part_1
+  m_Name: suzanne_part_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37080,7 +37080,7 @@ GameObject:
   - component: {fileID: 1795942127}
   - component: {fileID: 1795942128}
   m_Layer: 0
-  m_Name: suzanne_part_3
+  m_Name: suzanne_part_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
