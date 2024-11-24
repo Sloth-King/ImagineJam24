@@ -33,7 +33,7 @@ public class CharacterBattler : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         selectionCircleObject = transform.Find("shadow").gameObject;
         if(isPlayerTeam) {
-            health = 10;
+            health = 100;
         }
         if(!isPlayerTeam){
             health = 100;
@@ -95,6 +95,7 @@ private IEnumerator AttackCoroutine(CharacterBattler target, Action onAttackComp
         // TODO: When we have animations, play attack animation
         PlayAttackAnimation();
         target.Damage(attackDamage, diceResult);
+        Heal(diceResult);
 
         // When done with the attack, go back to the start position
         SlideToPosition(startPosition, () => {
@@ -121,10 +122,10 @@ private IEnumerator AttackCoroutine(CharacterBattler target, Action onAttackComp
                 realDamageAmount = damageAmount;
                 break;
             case 5:
-                realDamageAmount = damageAmount * (int)(damageAmount/3);
+                realDamageAmount = damageAmount + 10;
                 break;
             case 6:
-                realDamageAmount = damageAmount * ((int)damageAmount/2);
+                realDamageAmount = damageAmount + 20;
                 break;
             default:
                 Debug.Log("Broke i guess idk");
@@ -136,7 +137,32 @@ private IEnumerator AttackCoroutine(CharacterBattler target, Action onAttackComp
             healthBarUI.UpdateHealthBar(healthSystem.currentHealth);
         }
     }
-    public void Heal(int healAmount){
+    public void Heal(int diceResult){
+        int healAmount;
+        switch(diceResult){
+            case 1:
+                healAmount = 0;
+                break;
+            case 2:
+                healAmount = 0;
+                break;
+            case 3:
+                healAmount = 5;
+                break;
+            case 4:
+                healAmount = 10;
+                break;
+            case 5:
+                healAmount = 10;
+                break;
+            case 6:
+                healAmount = 30;
+                break;
+            default:
+                Debug.Log("Broke i guess idk");
+                healAmount = 0;
+                break;
+        }
         healthSystem.Heal(healAmount);
         if(healthBarUI != null){
             healthBarUI.UpdateHealthBar(healthSystem.currentHealth);
