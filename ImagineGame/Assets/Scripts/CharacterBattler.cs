@@ -209,7 +209,8 @@ private IEnumerator AttackCoroutine(CharacterBattler target, Action onAttackComp
     }
 
     private IEnumerator RollDiceCoroutine()    {
-        GameObject diceInstance = Instantiate(dicePrefab, transform.position, Quaternion.identity);
+        Vector3 diceOffset = new Vector3(0,-1.5f , 0);
+        GameObject diceInstance = Instantiate(dicePrefab, transform.position + diceOffset, Quaternion.identity);
         Dice dice = diceInstance.GetComponent<Dice>();
         yield return dice.RollTheDice();
         diceResult = dice.GetFinalSide();
