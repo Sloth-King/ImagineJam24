@@ -19,7 +19,6 @@ public class BattleHandler : MonoBehaviour
     }
 
 
-
     private enum BattleState{
         WaitingForInput,
         Busy,
@@ -73,6 +72,10 @@ public class BattleHandler : MonoBehaviour
     }
 
     private void ChooseNextCharacter(){
+        if(IsBattleOver()){
+            Debug.Log("Battle Over");
+            return;
+        }
         if(currentCharacter == playerCharacter){
             SetActiveCharacter(enemyCharacter);
             currentCharacter.Attack(playerCharacter, () => {
@@ -82,5 +85,12 @@ public class BattleHandler : MonoBehaviour
             SetActiveCharacter(playerCharacter);
             battleState = BattleState.WaitingForInput;
         }
+    }
+
+    private bool IsBattleOver(){
+        if(playerCharacter.IsDead() || enemyCharacter.IsDead()){
+            return true;
+        }
+        return false;
     }
 }

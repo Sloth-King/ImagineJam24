@@ -9,6 +9,9 @@ public class CharacterBattler : MonoBehaviour
     [SerializeField] private Vector3 targetPosition;
     [SerializeField] private int attackDamage = 10;
     [SerializeField] private int health = 100;
+
+    public HealthBarUI healthBarUI;
+
     public bool isPlayerTeam;
     private Action onSlideComplete;
     private GameObject selectionCircleObject;
@@ -27,6 +30,8 @@ public class CharacterBattler : MonoBehaviour
         selectionCircleObject = transform.Find("shadow").gameObject;
 
         healthSystem = new HealthSystem(health);
+        healthBarUI = GetComponentInChildren<HealthBarUI>();
+        healthBarUI.SetMaxHealth(health);
 
         HideSelectionCircle();
     }
@@ -81,14 +86,23 @@ public class CharacterBattler : MonoBehaviour
 
     public void Damage(int damageAmount){
         healthSystem.Damage(damageAmount);
+        if(healthBarUI != null){
+            healthBarUI.UpdateHealthBar(healthSystem.currentHealth);
+        }
         if(healthSystem.IsDead()){
-            Die();
+            //Die();
         }
     }
 
-    public void Die(){
-        //TODO : Play death animation
-        Destroy(this.gameObject);
+    public void Heal(int healAmount){
+        healthSystem.Heal(healAmount);
+        if(healthBarUI != null){
+            healthBarUI.UpdateHealthBar(healthSystem.currentHealth);
+        }
+    }
+
+    public bool IsDead(){
+        return healthSystem.IsDead();
     }
 
     private void SlideToPosition(Vector3 targetPosition, Action onSlideComplete){
