@@ -65,7 +65,7 @@ MonoBehaviour:
   attackDamage: 10
   health: 100
   healthBarUI: {fileID: 0}
-  dicePrefab: {fileID: 7216224318574856250, guid: 5b9f4f81a85468645b8d5c90176c36c4, type: 3}
+  dicePrefab: {fileID: 3095628412825654940, guid: f8ed06ae62eb6ea4383471b37cc535af, type: 3}
   isPlayerTeam: 1
 --- !u!212 &6674249476877986058
 SpriteRenderer:
