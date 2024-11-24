@@ -11,9 +11,11 @@ public class PickUpPart : MonoBehaviour
             int number = (int)char.GetNumericValue(lastChar);
 
             Debug.Log("pickup object number "+ number);
-
+            Debug.Log("Avant :"+ StaticIntArray.partsCollected[number]);
             // tableau de int [number] == 1
-
+            // StaticIntArray.partsCollected[number] = 1;
+            // Debug.Log("pickup object number "+ number + " collected");
+            // Debug.Log("Avant :" + StaticIntArray.partsCollected[number]);
             this.gameObject.SetActive(false);
         }
     }

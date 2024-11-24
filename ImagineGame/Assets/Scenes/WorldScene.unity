@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 442668330}
   - component: {fileID: 442668331}
   m_Layer: 0
-  m_Name: suzanne_part_5
+  m_Name: suzanne_part_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42449,6 +42449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1953065352}
+  - component: {fileID: 1953065353}
   m_Layer: 4
   m_Name: ShipParts
   m_TagString: Untagged
@@ -42476,6 +42477,18 @@ Transform:
   - {fileID: 2055843814}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1953065353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953065351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313872b27c3a64145b602417638e449b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2055843813
 GameObject:
   m_ObjectHideFlags: 0
