@@ -24,7 +24,6 @@ public class HealthSystem
 
     public void Heal(int healAmount)
     {
-        Debug.Log("Healed: " + healAmount);
         currentHealth += healAmount;
         if(currentHealth > maxHealth){
             currentHealth = maxHealth;

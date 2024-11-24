@@ -9,7 +9,7 @@ public class PickUpPart : MonoBehaviour
         {
             char lastChar = this.gameObject.name[this.gameObject.name.Length - 1];
             int number = (int)char.GetNumericValue(lastChar);
-            
+
             GameManager.instance.currentPart = number;
 
             // Debug.Log("pickup object number "+ number);
@@ -18,7 +18,8 @@ public class PickUpPart : MonoBehaviour
             // StaticIntArray.partsCollected[number] = 1;
             // Debug.Log("pickup object number "+ number + " collected");
             // Debug.Log("Avant :" + StaticIntArray.partsCollected[number]);
-            this.gameObject.SetActive(false);
+            Debug.Log("this.gameObject.transform.parent.gameObject : " + this.gameObject.transform.parent.gameObject.name);
+            this.gameObject.transform.parent.gameObject.SetActive(false);
         }
     }
 }
