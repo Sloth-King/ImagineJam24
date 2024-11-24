@@ -8,15 +8,32 @@ public class Dice : MonoBehaviour { // https://www.youtube.com/watch?v=JgbJZdXDN
 
     // Reference to sprite renderer to change sprites
     private SpriteRenderer rend;
+    private int finalSide;
+
+    public int GetFinalSide()
+    {
+        return finalSide;
+    }
 
 	// Use this for initialization
-	private void Start () {
+	private void Awake () {
 
         // Assign Renderer component
         rend = GetComponent<SpriteRenderer>();
+        if(rend == null)
+        {
+            Debug.LogError("Sprite Renderer component not found attached to the dice.");
+        }
 
         // Load dice sides sprites to array from DiceSides subfolder of Resources folder
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
+
+            Debug.Log($"diceSides length: {diceSides.Length}");
+        if (diceSides.Length == 0)
+        {
+            Debug.LogError("diceSides array is empty! Assign the sprites in the Inspector.");
+        }
+
 	}
 	
     // If you left click over the dice then RollTheDice coroutine is started
@@ -25,15 +42,24 @@ public class Dice : MonoBehaviour { // https://www.youtube.com/watch?v=JgbJZdXDN
         StartCoroutine("RollTheDice");
     }
 
+    public void Roll(){
+        StartCoroutine("RollTheDice");
+    }
+
     // Coroutine that rolls the dice
-    private IEnumerator RollTheDice()
+    public IEnumerator RollTheDice()
     {
+        if (rend == null || diceSides == null || diceSides.Length == 0)
+        {
+            Debug.LogError("Dice setup is incomplete. Ensure rend and diceSides are assigned.");
+            yield break;
+        }
         // Variable to contain random dice side number.
         // It needs to be assigned. Let it be 0 initially
         int randomDiceSide = 0;
 
         // Final side or value that dice reads in the end of coroutine
-        int finalSide = 0;
+        finalSide = 0;
 
         // Loop to switch dice sides ramdomly
         // before final side appears. 20 itterations here.

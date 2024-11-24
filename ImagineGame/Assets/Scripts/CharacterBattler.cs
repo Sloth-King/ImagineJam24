@@ -11,11 +11,13 @@ public class CharacterBattler : MonoBehaviour
     [SerializeField] private int health = 100;
 
     public HealthBarUI healthBarUI;
+    public GameObject dicePrefab;
 
     public bool isPlayerTeam;
     private Action onSlideComplete;
     private GameObject selectionCircleObject;
     private HealthSystem healthSystem;
+
 
     private State state = State.Idle;
 
@@ -65,24 +67,56 @@ public class CharacterBattler : MonoBehaviour
         PlayIdleAnimation();
     }
 
-    public void Attack(CharacterBattler target , Action onAttackComplete = null){
-        Vector3 targetPosition = target.transform.position + this.transform.position.normalized; 
-        Vector3 startPosition = this.transform.position;
+    //Legacy code
+    // public void Attack(CharacterBattler target , Action onAttackComplete = null){
+    //     Vector3 targetPosition = target.transform.position + this.transform.position.normalized; 
+    //     Vector3 startPosition = this.transform.position;
+    //     StartCoroutine(RollDiceCoroutine());
+    //     //Slide to target position
+    //     SlideToPosition(targetPosition, () => {
+    //         //Attack target            
+    //         state = State.Attacking;
+    //         //TODO : When we have animations : Play attack animation
+    //         PlayAttackAnimation();
+    //         target.Damage(attackDamage);
+    //         //When done with attack, go back to start position
+    //         SlideToPosition(startPosition, () => {
+    //             state = State.Idle;
+    //             onAttackComplete();
+    //         });
+    //     });
+    // }
 
-        //Slide to target position
-        SlideToPosition(targetPosition, () => {
-            //Attack target            
-            state = State.Attacking;
-            //TODO : When we have animations : Play attack animation
-            PlayAttackAnimation();
-            target.Damage(attackDamage);
-            //When done with attack, go back to start position
-            SlideToPosition(startPosition, () => {
-                state = State.Idle;
-                onAttackComplete();
-            });
+    public void Attack(CharacterBattler target, Action onAttackComplete = null)
+{
+    StartCoroutine(AttackCoroutine(target, onAttackComplete));
+}
+
+private IEnumerator AttackCoroutine(CharacterBattler target, Action onAttackComplete)
+{
+    // Roll the dice
+    yield return StartCoroutine(RollDiceCoroutine());
+
+    // After the dice roll, proceed with the attack
+    Vector3 targetPosition = target.transform.position + this.transform.position.normalized; 
+    Vector3 startPosition = this.transform.position;
+
+    // Slide to target position
+    SlideToPosition(targetPosition, () => {
+        // Attack target            
+        state = State.Attacking;
+        // TODO: When we have animations, play attack animation
+        PlayAttackAnimation();
+        target.Damage(attackDamage);
+
+        // When done with the attack, go back to the start position
+        SlideToPosition(startPosition, () => {
+            state = State.Idle;
+            onAttackComplete?.Invoke();
         });
-    }
+    });
+}
+
 
     public void Damage(int damageAmount){
         healthSystem.Damage(damageAmount);
@@ -117,6 +151,16 @@ public class CharacterBattler : MonoBehaviour
 
     public void ShowSelectionCircle(){
         selectionCircleObject.SetActive(true);
+    }
+
+    private IEnumerator RollDiceCoroutine()    {
+        GameObject diceInstance = Instantiate(dicePrefab, transform.position, Quaternion.identity);
+        Dice dice = diceInstance.GetComponent<Dice>();
+        yield return dice.RollTheDice();
+        int diceResult = dice.GetFinalSide();
+        Debug.Log("Dice result: " + diceResult);
+        // Use the dice result in your logic
+        Destroy(diceInstance);
     }
 
     //TODO : Implement this method 
