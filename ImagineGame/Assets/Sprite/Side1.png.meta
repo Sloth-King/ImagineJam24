@@ -142,10 +142,10 @@ TextureImporter:
       name: Side1_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 8
-        width: 329
-        height: 329
+        x: 8
+        y: 14
+        width: 107
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,8 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Side1_0: -1962201580291615686
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
